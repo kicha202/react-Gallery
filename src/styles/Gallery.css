@@ -1,0 +1,163 @@
+/* ============================================
+   GALLERY CONTAINER STYLES
+   ============================================ */
+
+.gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.gallery-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-subtitle {
+  text-align: center;
+  color: #34495e;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   GALLERY STATS SECTION
+   ============================================ */
+
+.gallery-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.stats-info {
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.clear-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.clear-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+/* ============================================
+   CSS GRID IMPLEMENTATION - MAIN GALLERY GRID
+   ============================================ */
+
+.gallery-grid {
+  display: grid;
+  
+  /* Auto-fit creates as many columns as can fit */
+  /* minmax ensures minimum 250px, maximum 1fr (equal distribution) */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  
+  /* Gap between grid items */
+  gap: 1.5rem;
+  
+  /* Auto-flow dense creates masonry-like effect */
+  grid-auto-flow: dense;
+  
+  /* Smooth transitions */
+  transition: all 0.3s ease;
+}
+
+/* ============================================
+   RESPONSIVE GRID ADJUSTMENTS
+   ============================================ */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .gallery-container {
+    padding: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-title {
+    font-size: 2rem;
+  }
+
+  .gallery-subtitle {
+    font-size: 1rem;
+  }
+
+  .gallery-stats {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .clear-btn {
+    width: 100%;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 480px) {
+  .gallery-container {
+    padding: 1rem;
+  }
+
+  .gallery-grid {
+    /* Mobile: 1 column layout */
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .gallery-title {
+    font-size: 1.75rem;
+  }
+
+  .gallery-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Large Screens: 4+ columns */
+@media (min-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+}
+
+/* Extra Large Screens */
+@media (min-width: 1600px) {
+  .gallery-container {
+    max-width: 1800px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+  }
+}
